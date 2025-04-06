@@ -1,0 +1,34 @@
+{% load static %}
+<div class="bg-body-emphasis sticky-top" data-navbar-shadow-on-scroll="data-navbar-shadow-on-scroll">
+    <nav class="navbar navbar-expand-lg container-small px-3 px-lg-7 px-xxl-3"><a
+            class="navbar-brand flex-1 flex-lg-grow-0" href="{% url 'cms:home' %}">
+        <div class="d-flex align-items-center"><img src="{%  static 'assets/img/icons/logo.png' %}" alt="ElGuaire.com" width="27"/>
+            <h5 class="logo-text ms-2">ElGuaire.com</h5>
+        </div>
+    </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item border-bottom border-translucent border-bottom-lg-0"><a
+                        class="nav-link lh-1 py-0 fs-9 fw-bold py-3" aria-current="page" href="{% url 'cms:home' %}">Home</a></li>
+                {% comment %}<li class="nav-item border-bottom border-translucent border-bottom-lg-0"><a
+                        class="nav-link lh-1 py-0 fs-9 fw-bold py-3" href="#feature">Features</a></li>
+                <li class="nav-item border-bottom border-translucent border-bottom-lg-0"><a
+                        class="nav-link lh-1 py-0 fs-9 fw-bold py-3" href="#blog">Blog</a></li>
+                <li class="nav-item"><a class="nav-link lh-1 py-0 fs-9 fw-bold py-3" href="#team">Team</a></li>{% endcomment %}
+            </ul>
+            <div class="d-grid d-lg-flex align-items-center">
+                <a class="text-body-quaternary text-body-tertiary-hover px-2 d-none d-lg-inline lh-sm" href="#"
+                   data-bs-toggle="modal" data-bs-target="#searchBoxModal"><span data-feather="search"
+                                                                                 style="height: 20px; width: 20px;"></span></a><a
+                    class="btn btn-link text-body order-1 order-lg-0 ps-4 me-lg-2"
+                    href="{% url 'login' %}">Sign in</a><a
+                    class="btn btn-phoenix-primary order-0"
+                    href="{% url 'register' %}"><span class="fw-bold">Sign up</span></a>
+            </div>
+        </div>
+    </nav>
+</div>

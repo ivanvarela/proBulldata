@@ -1,0 +1,8 @@
+{
+        "SECRET_KEY": "django-insecure-2c37m+-_fh7o3jp7avr9%if6#76w7mv+k6d$e+vy(2sdsf&wm4",
+        "SENDGRID_API_KEY": "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",
+        "DB_HOST": "localhost",
+        "DB_NAME": "elguaire_local",
+        "DB_USER": "localuser",
+        "DB_PASS": "kAgKFfus&3"
+}
