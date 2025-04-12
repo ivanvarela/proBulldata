@@ -15,6 +15,7 @@ from pathlib import Path
 from django.contrib.messages import constants as messages
 import json
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -75,6 +76,7 @@ SECRET_KEY = config['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 
 # Application definition
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -199,3 +201,4 @@ EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
 SENDGRID_API_KEY = config['SENDGRID_API_KEY']
 SENDGRID_SANDBOX_MODE_IN_DEBUG = False
 DEFAULT_FROM_EMAIL = "ivan@elguaire.com"
+
