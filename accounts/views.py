@@ -103,7 +103,7 @@ def registerUser(request):
                 email_user.content_subtype = "html"
                 email_user.send()
 
-            return redirect('login')
+            return redirect('cms:home')
         else:
             messages.error(request, 'Ha ocurrido un error usuario no creado')
             for e in form.errors:
@@ -141,7 +141,7 @@ def login_view(request):
                     logout(request)
             except Profile.DoesNotExist:
                 # Si no tiene perfil, redirigir a crear uno
-                return redirect('login')
+                return redirect('register')
         else:
             messages.error(request, 'Usuario o password incorrecto')
 
@@ -153,7 +153,7 @@ def logout_view(request):
     """Vista de logout"""
     logout(request)
     messages.success(request, "Sesión cerrada")
-    return redirect('login')
+    return redirect('cms:home')
 
 
 class CustomPasswordResetView(PasswordResetView):

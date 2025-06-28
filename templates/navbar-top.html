@@ -7,7 +7,7 @@
                     data-bs-toggle="collapse" data-bs-target="#navbarVerticalCollapse"
                     aria-controls="navbarVerticalCollapse" aria-expanded="false" aria-label="Toggle Navigation">
                 <span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
-            <a class="navbar-brand me-1 me-sm-3" href="index.html">
+            <a class="navbar-brand me-1 me-sm-3" href="{% url 'bets:home_bets' %}">
                 <div class="d-flex align-items-center">
                     <div class="d-flex align-items-center"><img src="{% static 'assets/img/icons/logo.png' %}"
                                                                 alt="bulldata"
@@ -52,7 +52,7 @@
                                 <li class="nav-item"><a class="nav-link px-3 d-block" href="#!"> <span
                                         class="me-2 text-body align-bottom"
                                         data-feather="user"></span><span>Profile</span></a></li>
-                                <li class="nav-item"><a class="nav-link px-3 d-block" href="#!"><span
+                                <li class="nav-item"><a class="nav-link px-3 d-block" href="{% url 'bets:home_bets' %}"><span
                                         class="me-2 text-body align-bottom"
                                         data-feather="pie-chart"></span>Dashboard</a>
                                 </li>

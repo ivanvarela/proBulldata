@@ -12,7 +12,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-
+@login_required(login_url='login')
 def home(request):
     context = {}
     context = get_revenue_metrics(context)
@@ -20,6 +20,7 @@ def home(request):
     return render(request, 'bets/home.html', context)
 
 
+@login_required(login_url='login')
 def admin_users(request):
     lista = Profile.objects.order_by('last_name')
     context = {
