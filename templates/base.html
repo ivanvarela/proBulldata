@@ -11,7 +11,7 @@
     <!-- ===============================================-->
     <!--    Document Title-->
     <!-- ===============================================-->
-    <title>Phoenix</title>
+    <title>BullData</title>
 
 
     <!-- ===============================================-->
@@ -24,9 +24,10 @@
     <link rel="manifest" href="{% static 'assets/img/favicons/manifest.json' %}">
     <meta name="msapplication-TileImage" content="{% static 'assets/img/favicons/mstile-150x150.png' %}">
     <meta name="theme-color" content="#ffffff">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="{% static 'vendors/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
     <script src="{% static 'vendors/simplebar/simplebar.min.js' %}"></script>
     <script src="{% static 'assets/js/config.js' %}"></script>
-
 
     <!-- ===============================================-->
     <!--    Stylesheets-->
@@ -56,6 +57,9 @@
             userLinkRTL.setAttribute('disabled', true);
         }
     </script>
+    <link href="{% static '' %}vendors/leaflet/leaflet.css" rel="stylesheet">
+    <link href="{% static '' %}vendors/leaflet.markercluster/MarkerCluster.css" rel="stylesheet">
+    <link href="{% static '' %}vendors/leaflet.markercluster/MarkerCluster.Default.css" rel="stylesheet">
 </head>
 
 
@@ -108,8 +112,26 @@
 <script src="{% static 'vendors/anchorjs/anchor.min.js' %}"></script>
 <script src="{% static 'vendors/is/is.min.js' %}"></script>
 <script src="{% static 'vendors/fontawesome/all.min.js' %}"></script>
-<script src="{% static 'vendors/feather-icons/feather.min.js' %}"></script>
+<script src="{% static 'vendors/lodash/lodash.min.js' %}"></script>
+<script src="{% static 'vendors/list.js/list.min.js' %}"></script>
+<script src="{% static 'vendors/dayjs/dayjs.min.js' %}"></script>
 <script src="{% static 'assets/js/phoenix.js' %}"></script>
+
+<script src="{% static 'vendors/leaflet/leaflet.js' %}"></script>
+<script src="{% static 'vendors/leaflet.markercluster/leaflet.markercluster.js' %}"></script>
+<script src="{% static 'vendors/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs/dayjs.min.js"></script>
+<script src="{% static 'vendors/echarts/echarts.min.js' %}"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (window.feather) {
+            feather.replace();
+        } else {
+            console.error('Feather no está cargado');
+        }
+    });
+</script>
 
 </body>
 

@@ -5,58 +5,24 @@
                 <ul class="navbar-nav flex-column" id="navbarVerticalNav">
                     <li class="nav-item">
                         <!-- parent pages-->
-                        <div class="nav-item-wrapper"><a class="nav-link dropdown-indicator label-1" href="#nv-home"
+                        <div class="nav-item-wrapper"><a class="nav-link dropdown-indicator label-1" href="#nv-revenue"
                                                          role="button" data-bs-toggle="collapse" aria-expanded="true"
-                                                         aria-controls="nv-home">
+                                                         aria-controls="nv-revenue">
                             <div class="d-flex align-items-center">
                                 <div class="dropdown-indicator-icon-wrapper"><span
                                         class="fas fa-caret-right dropdown-indicator-icon"></span></div>
-                                <span class="nav-link-icon"><span data-feather="pie-chart"></span></span><span
-                                    class="nav-link-text">Home</span>
+                                <span class="nav-link-icon"><span data-feather="dollar-sign"></span></span><span
+                                    class="nav-link-text">Dashboard</span>
                             </div>
                         </a>
                             <div class="parent-wrapper label-1">
                                 <ul class="nav collapse parent show" data-bs-parent="#navbarVerticalCollapse"
-                                    id="nv-home">
-                                    <li class="collapsed-nav-item-title d-none">Home
+                                    id="nv-revenue">
+                                    <li class="collapsed-nav-item-title d-none">Revenue
                                     </li>
-                                    <li class="nav-item"><a class="nav-link active" href="index.html">
+                                    <li class="nav-item"><a class="nav-link active" href="{% url 'bets:home_bets' %}">
                                         <div class="d-flex align-items-center"><span
-                                                class="nav-link-text">E commerce</span>
-                                        </div>
-                                    </a>
-                                        <!-- more inner pages-->
-                                    </li>
-                                    <li class="nav-item"><a class="nav-link" href="dashboard/project-management.html">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text">Project management</span>
-                                        </div>
-                                    </a>
-                                        <!-- more inner pages-->
-                                    </li>
-                                    <li class="nav-item"><a class="nav-link" href="dashboard/crm.html">
-                                        <div class="d-flex align-items-center"><span class="nav-link-text">CRM</span>
-                                        </div>
-                                    </a>
-                                        <!-- more inner pages-->
-                                    </li>
-                                    <li class="nav-item"><a class="nav-link" href="dashboard/travel-agency.html">
-                                        <div class="d-flex align-items-center"><span
-                                                class="nav-link-text">Travel agency</span>
-                                        </div>
-                                    </a>
-                                        <!-- more inner pages-->
-                                    </li>
-                                    <li class="nav-item"><a class="nav-link" href="dashboard/stock.html">
-                                        <div class="d-flex align-items-center"><span
-                                                class="nav-link-text">Stock</span><span
-                                                class="badge ms-2 badge badge-phoenix badge-phoenix-warning ">new</span>
-                                        </div>
-                                    </a>
-                                        <!-- more inner pages-->
-                                    </li>
-                                    <li class="nav-item"><a class="nav-link" href="apps/social/feed.html">
-                                        <div class="d-flex align-items-center"><span
-                                                class="nav-link-text">Social feed</span>
+                                                class="nav-link-text">Revenue</span>
                                         </div>
                                     </a>
                                         <!-- more inner pages-->
@@ -65,7 +31,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item">
+                    {% comment %}<li class="nav-item">
                         <!-- label-->
                         <p class="navbar-vertical-label">Apps
                         </p>
@@ -2464,7 +2430,7 @@
                             </div>
                         </a>
                         </div>
-                    </li>
+                    </li>{% endcomment %}
                 </ul>
             </div>
         </div>

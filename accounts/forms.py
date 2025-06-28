@@ -1,9 +1,8 @@
 from django.forms import ModelForm
 from django import forms
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm, SetPasswordForm
+from django.contrib.auth.forms import UserCreationForm
 from django.core.validators import EmailValidator
-from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 
 
@@ -30,7 +29,6 @@ class CustomUserCreationForm(UserCreationForm):
         required=True,
         help_text='Formato Internacional ejemplo: +52 55 5555 5555 para uso con whatsapp'
     )
-    alias = forms.CharField(max_length=64)
 
     class Meta:
         model = User

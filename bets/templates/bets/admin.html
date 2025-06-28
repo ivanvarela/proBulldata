@@ -1,0 +1,113 @@
+{% extends 'bets/home.html' %}
+
+{% block extra_css %}
+<style>
+    .delete-user {
+        font-size: 1.1rem;
+        transition: transform 0.2s ease;
+    }
+    .delete-user:hover {
+        transform: scale(1.2);
+        color: #dc3545 !important;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+    <div class="pb-5">
+        <div class="row g-4">
+            <div class="col-12 mb-2">
+                <div class="mb-2">
+                    <h2 class="mb-2">Administrar usuarios</h2>
+                    <h5 class="text-body-tertiary fw-semibold"></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mx-n4 px-4 mx-lg-n6 px-lg-6 bg-body-emphasis pt-7 border-y">
+        <div>
+            <div class="row align-items-end justify-content-between pb-5 g-3">
+                <div class="col-auto">
+                    <h3>Usuarios registrados</h3>
+                    <p class="text-body-tertiary lh-sm mb-0">Aplicar atributos a usuarios</p>
+                </div>
+            </div>
+            <div class="table-responsive mx-n1 px-1 scrollbar">
+                <table class="table fs-9 mb-0 border-top border-translucent">
+                    <thead>
+                    <tr>
+                        <th>email</th>
+                        <th>Apellidos, Nombres</th>
+                        <th>Administrador</th>
+                        <th>Status</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for l in lista %}
+                        <tr id="user-row-{{ l.id }}">
+                            <td><a href="">{{ l.email }}</a></td>
+                            <td>{{ l.last_name }}, {{ l.first_name }}</td>
+                            <td>
+                                <form method="POST" action="{% url 'bets:chng_admin' l.id %}" id="form_{{ l.id }}"
+                                      onchange="document.getElementById('form_{{ l.id }}').submit()">
+                                    {% csrf_token %}
+                                    <input type="checkbox" value="True" name="is_admin" id="id_is_admin_{{ l.id }}"
+                                            {% if l.is_admin %} checked {% endif %}
+                                           onchange="this.form.submit()">
+                                </form>
+                            </td>
+                            <td>
+                                <form method="POST" action="{% url 'bets:proc_acceso' l.id %}"
+                                      id="form2_{{ l.id }}"
+                                      onchange="document.getElementById('form2_{{ l.id }}').submit()">
+                                    {% csrf_token %}
+                                    <select id="id_status" name="status">
+                                        {{ request.GET.statuspago }}
+                                        <option>Estado</option>
+                                        <option value="A" {% if l.status == "A" %} selected {% endif %}>Aprobado
+                                        </option>
+                                        <option value="B" {% if l.status == "B" %} selected {% endif %}>Bloqueado
+                                        </option>
+                                    </select>
+                                </form>
+                            </td>
+                            <td>
+                                {% if request.user.profile.is_admin %}
+                                <a href="#" class="text-danger delete-user" data-bs-toggle="modal" data-bs-target="#deleteModal{{ l.id }}" title="Eliminar usuario">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+
+                                <!-- Modal de confirmación para eliminar usuario -->
+                                <div class="modal fade" id="deleteModal{{ l.id }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ l.id }}" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="deleteModalLabel{{ l.id }}">Confirmar eliminación</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                ¿Está seguro que desea eliminar al usuario <strong>{{ l.last_name }}, {{ l.first_name }}</strong>?
+                                                <p class="text-danger mt-2">Esta acción no se puede deshacer.</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                <form method="POST" action="{% url 'bets:delete_user' l.id %}">
+                                                    {% csrf_token %}
+                                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+{% endblock content %}

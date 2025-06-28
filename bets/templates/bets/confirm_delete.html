@@ -1,0 +1,36 @@
+<!-- Modal HTMX para confirmación de eliminación -->
+<div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteUserModalLabel">Confirmar eliminación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Está seguro que desea eliminar al usuario <strong>{{ profile.last_name }}, {{ profile.first_name }}</strong>?
+                <p class="text-danger mt-2">Esta acción no se puede deshacer.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger"
+                        hx-delete="{% url 'bets:delete_user_htmx' profile.id %}"
+                        hx-target="#user-row-{{ profile.id }}"
+                        hx-swap="outerHTML"
+                        hx-indicator="#loading-indicator"
+                        data-bs-dismiss="modal">
+                    Eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script para mostrar automáticamente el modal -->
+<script>
+    document.addEventListener('htmx:afterSwap', function(event) {
+        if (event.detail.target.id === 'confirmDeleteModal') {
+            var modal = new bootstrap.Modal(document.getElementById('deleteUserModal'));
+            modal.show();
+        }
+    });
+</script>

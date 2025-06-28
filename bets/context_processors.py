@@ -1,5 +1,9 @@
+import pdb
+
+
 def user_menu(request):
     if request.user.is_authenticated:
+
         user_profile = request.user.profile
         if user_profile.is_admin:
             is_admin = True

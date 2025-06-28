@@ -2,52 +2,140 @@
 <section class="bg-body-emphasis pb-8" id="home">
     <div class="container-small hero-header-container px-lg-7 px-xxl-3">
         <div class="row align-items-center">
-            <div class="col-12">
+            <div class="col-12 col-lg-auto order-0 order-md-1 text-end order-1">
+                <div class="position-relative p-5 p-md-7 d-lg-none">
+                    <div class="bg-holder"
+                         style="background-image:url({% static 'assets/img/bg/bg-23.png' %});background-size:contain;">
+                    </div>
+                    <!--/.bg-holder-->
 
-                <div class="card text-white overflow-hidden">
-                    <img class="card-img-top" src="{{ principal.image_url }}" alt="...">
-                    <div class="card-img-overlay d-flex align-items-end">
-                        <div>
-                            <h4 class="card-title text-white">{{ principal.title }}</h4>
-                            <p class="card-text">{{ principal.summary }}</p>
+                    <div class="position-relative"><img class="w-100 shadow-lg d-dark-none rounded-2"
+                                                        src="{% static 'assets/img/bg/bg-42.png' %}" alt="hero-header"/><img
+                            class="w-100 shadow-lg d-light-none rounded-2" src="{% static 'assets/img/bg/bg-30.png' %}"
+                            alt="hero-header"/></div>
+                </div>
+                <div class="hero-image-container position-absolute top-0 bottom-0 end-0 d-none d-lg-block">
+                    <div class="position-relative h-100 w-100">
+                        <div class="position-absolute h-100 top-0 d-flex align-items-center end-0 hero-image-container-bg">
+                            <img class="pt-7 pt-md-0 w-100" src="{% static 'assets/img/bg/bg-1-2.png' %}"
+                                 alt="hero-header"/>
                         </div>
+                        <div class="position-absolute h-100 top-0 d-flex align-items-center end-0"><img
+                                class="pt-7 pt-md-0 w-100 shadow-lg d-dark-none rounded-2"
+                                src="{% static 'assets/img/bg/bg-42.png' %}" alt="hero-header"/><img
+                                class="pt-7 pt-md-0 w-100 shadow-lg d-light-none rounded-2"
+                                src="{% static 'assets/img/bg/bg-42.png' %}" alt="hero-header"/></div>
                     </div>
                 </div>
-
+            </div>
+            <div class="col-12 col-lg-6 text-lg-start text-center pt-8 pb-6 order-0 position-relative">
+                <h1 class="fs-3 fs-lg-2 fs-md-1 fs-lg-2 fs-xl-1 fs fw-black mb-4"><span class="text-primary me-3">Mejores Ingresos</span><br/>por tu contenido</h1>
+                <p class="mb-5">Simplificamos la monetización del contenido de tu sitio, olvida tu equipo tecnico con
+                    una solición simple. Integramos anuncios de display y video</p><a
+                    class="btn btn-lg btn-primary rounded-pill me-3"
+                    href="https://cal.com/bulldata/30min" role="button">Hablemos</a>
             </div>
         </div>
     </div>
 </section>
 
-
 <!-- ============================================-->
 <!-- <section> begin ============================-->
-<section class="bg-body-emphasis" id="blog">
+<section class="pt-15 pb-0" id="feature">
+
     <div class="container-small px-lg-7 px-xxl-3">
-        <div class="mb-4 text-center text-sm-start">
-            <h4 class="text-primary fw-bolder mb-3">Blog</h4>
-            <h2>Latest articles</h2>
-        </div>
-        <p class="column-md-2"></p>
-        <div class="row h-100 mb-3 g-3 justify-content-center">
-            {% for n in news %}
-                <div class="col-sm-6 col-lg-3 mb-3 mb-md-0">
-                    <div class="card text-white dark__text-gray-1100 h-100"><img
-                            class="rounded-top h-100 object-fit-cover" src="{{ n.image_url }}"
-                            alt="{{ n.title }}"/>
-                        <div class="card-body rounded-top">
-                            <span class="badge badge-phoenix badge-phoenix-primary mb-2">Horse Racing</span>
-                            <h4 class="fw-bold mb-3 lh-sm line-clamp-2">{{ n.summary }}</h4><a
-                                class="btn-link px-0 d-flex align-items-center fs-9 fw-bold" href="{{ n.url }}"
-                                role="button">Read
-                            more<span class="fa-solid fa-angle-right ms-2"></span></a>
+        <div class="position-relative z-2">
+            <div class="row">
+                <div class="col-lg-6 text-center text-lg-start pe-xxl-3">
+                    <h4 class="text-primary fw-bolder mb-4">¿Qué ofrecemos?</h4>
+                    <h2 class="mb-3 text-body-emphasis lh-base">Monetización de contenido:<br class="d-md-none"/>Display
+                        y Video</h2>
+                    <p class="mb-5">Mantenemos relaciones directas con los principales compradores de publicidad
+                        programática del mercado, lo que nos permite integrar sitios web de cualquier tamaño a nuestra
+                        red establecida. </p><a class="btn btn-lg btn-outline-primary rounded-pill me-2"
+                                                href="https://cal.com/bulldata/30min" role="button">Find out more<i
+                        class="fa-solid fa-angle-right ms-2"></i></a>
+                </div>
+                <div class="col-sm-6 col-lg-3 mt-7 text-center text-lg-start">
+                    <div class="h-100 d-flex flex-column justify-content-between">
+                        <div class="border-start-lg border-translucent border-dashed ps-4"><img class="mb-4"
+                                                                                                src="{% static 'assets/img/icons/illustrations/bolt.png' %}"
+                                                                                                width="48" height="48"
+                                                                                                alt=""/>
+                            <div>
+                                <h5 class="fw-bolder mb-2">Integración acelerada</h5>
+                                <p class="fw-semibold lh-sm">De cero a 100 en tres días, aprovechas las mismas
+                                    conexiones y tarifas premium que hemos construido durante años</p>
+                            </div>
+                            <div><a class="btn btn-link me-2 p-0 fs-9" href="https://cal.com/bulldata/30min"
+                                    role="button">Agenda una llamada<span
+                                    class="fa-solid fa-angle-right ms-2"></span></a></div>
                         </div>
                     </div>
                 </div>
-            {% endfor %}
+                <div class="col-sm-6 col-lg-3 mt-7 text-center text-lg-start">
+                    <div class="h-100 d-flex flex-column">
+                        <div class="border-start-lg border-translucent border-dashed ps-4"><img class="mb-4"
+                                                                                                src="{% static 'assets/img/icons/illustrations/pie.png' %}"
+                                                                                                width="48" height="48"
+                                                                                                alt=""/>
+                            <div>
+                                <h5 class="fw-bolder mb-2">Dashboard de monitoreo</h5>
+                                <p class="fw-semibold lh-sm">Visibilidad de tus ingresos diarios, mediante un dashboard
+                                    de monitoreo, para que nunca pierdas de vista el rendimiento de tu inventario.</p>
+                            </div>
+                            <div><a class="btn btn-link me-2 p-0 fs-9" href="https://cal.com/bulldata/30min"
+                                    role="button">Cuentanos tu caso<i class="fa-solid fa-angle-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-12 align-items-center justify-content-between text-center text-lg-start mb-6 mb-lg-0">
+                <div class="col-lg-5"><img class="feature-image img-fluid mb-9 mb-lg-0 d-dark-none"
+                                           src="{% static 'assets/img/spot-illustrations/22_2.png' %}" alt=""/>
+                    <img class="feature-image img-fluid mb-9 mb-lg-0 d-light-none"
+                         src="{% static 'assets/img/spot-illustrations/dark_22.png' %}" alt=""/></div>
+                <div class="col-lg-6">
+                    <h6 class="text-primary mb-2 ls-2">MENSAJES DIARIOS</h6>
+                    <h3 class="fw-bolder mb-3">Todos los días en tu bandeja de correo</h3>
+                    <p class="mb-4 px-md-7 px-lg-0">Es difícil entrar todos los días a cada plataforma, te enviamos tus
+                        resultados diariamente a tu correo para que no pierda el detalle de como van creciendo tus
+                        ingreos</p><a class="btn btn-link me-2 p-0 fs-9" href="https://cal.com/bulldata/30min"
+                                      role="button">Agenda una llamada<i class="fa-solid fa-angle-right ms-2"></i></a>
+                </div>
+            </div>
+            <div class="row mt-2 align-items-center justify-content-between text-center text-lg-start mb-6 mb-lg-0">
+                <div class="col-lg-5 order-0 order-lg-1"><img class="feature-image img-fluid mb-9 mb-lg-0 d-dark-none"
+                                                              src="{% static 'assets/img/spot-illustrations/23_2.png' %}"
+                                                              height="394" alt=""/>
+                    <img class="feature-image img-fluid mb-9 mb-lg-0 d-light-none"
+                         src="{% static 'assets/img/spot-illustrations/dark_23.png' %}" height="394" alt=""/></div>
+                <div class="col-lg-6">
+                    <h6 class="text-primary mb-2 ls-2">INGRESOS</h6>
+                    <h3 class="fw-bolder mb-3">Mira tus ingresos crecer</h3>
+                    <p class="mb-4 px-md-7 px-lg-0">Mantendremos la monetización simple, contamos con personal técnico
+                        especializado para integrar tu sitio fácilmente</p>
+                    <a class="btn btn-link me-2 p-0 fs-9" href="https://cal.com/bulldata/30min" role="button">Agenda una
+                        llamada<i class="fa-solid fa-angle-right ms-2"></i></a>
+                </div>
+            </div>
+            <div class="row mt-2 align-items-center justify-content-between text-center text-lg-start mb-6 mb-lg-0">
+                <div class="col-lg-5">
+                    <img class="feature-image img-fluid mb-9 mb-lg-0 d-dark-none"
+                         src="{% static 'assets/img/spot-illustrations/24_2.png' %}" height="394" alt=""/>
+                    <img class="feature-image img-fluid mb-9 mb-lg-0 d-light-none"
+                         src="{% static 'assets/img/spot-illustrations/dark_24.png' %}" height="394" alt=""/></div>
+                <div class="col-lg-6 text-center text-lg-start">
+                    <h6 class="text-primary mb-2 ls-2">SIMPLICADO</h6>
+                    <h3 class="fw-bolder mb-3">Las integraciones sson complejas</h3>
+                    <p class="mb-4 px-md-7 px-lg-0">Con nuestra experiencia lo hacemos sencillo para ti, integramos los
+                        compradores de forma directa y fácil</p><a class="btn btn-link me-2 p-0 fs-9"
+                                                                   href="https://cal.com/bulldata/30min" role="button">Agenda
+                    una llamada<i class="fa-solid fa-angle-right ms-2"></i></a>
+                </div>
+            </div>
         </div>
-        <div class="text-center mt-6"><a class="btn btn-outline-primary" href="#!">View All<span
-                class="fa-solid fa-angle-right ms-2"></span></a></div>
     </div>
     <!-- end of .container-->
 
@@ -55,6 +143,111 @@
 <!-- <section> close ============================-->
 <!-- ============================================-->
 
+<!-- ============================================-->
+<!-- <section> begin ============================-->
+<section class="bg-body-emphasis">
+
+    <div class="container-small px-lg-7 px-xxl-3">
+        {% comment %}<div class="mb-3 text-center text-sm-start">
+            <h4 class="text-primary fw-bolder mb-3">Address</h4>
+            <h2>If you need to find us:</h2>
+        </div>
+        <p class="column-md-2">Do not lose your potential customers to others. Tell them exactly where you are with
+            Geolocation enabled Phoenix admin dashboard, No need to take the burden of communicating directly. You can
+            easily tell your customers where to find you with precise location map. Getting closer was never easier!</p>
+        <div class="row">
+            <div class="col-12 mb-15">
+                <div class="mapbox-container rounded-3 border overflow-hidden mt-3 mb-6">
+                    <div id="mapbox"
+                         data-mapbox='{"attributionControl":false,"center":[-74.0020158,40.7228022],"zoom":14,"scrollZoom":false}'
+                         style="height: 381px"></div>
+                </div>
+            </div>
+        </div>{% endcomment %}
+        <div class="row g-5 g-lg-5">
+            <div class="col-md-6 mb-5 mb-md-0 text-center text-md-start">
+                <h3 class="mb-3">Contactanos</h3>
+                <p class="mb-5">Estamos disponbles para tus necesidades:</p>
+                <div class="d-flex flex-column align-items-center align-items-md-start gap-3 gap-md-0">
+                    <div class="d-md-flex align-items-center">
+                        <div class="icon-wrapper shadow-info"><span class="uil uil-phone text-primary fs-4 z-1 ms-2"
+                                                                    data-bs-theme="light"></span></div>
+                        <div class="flex-1 ms-3">
+                            <a class="link-900" href="https://wa.me/525545857975?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20sus%20servicios%20de%20monetización%20web" target="_blank">+52 55 45 85 7975</a></div>
+                    </div>
+                    <div class="d-md-flex align-items-center">
+                        <div class="icon-wrapper shadow-info"><span class="uil uil-envelope text-primary fs-4 z-1 ms-2"
+                                                                    data-bs-theme="light"></span></div>
+                        <div class="flex-1 ms-3"><a class="fw-semibold text-body" href="mailto:ivan.varela+bulldata@gmail.com">solicitudes@bulldata.info</a>
+                        </div>
+                    </div>
+                    {% comment %}<div class="d-flex"><a href="#!"><span class="fa-brands fa-facebook fs-6 text-primary me-3"></span></a><a
+                            href="#!"><span class="fa-brands fa-twitter fs-6 text-primary me-3"></span></a><a href="#!"><span
+                            class="fa-brands fa-linkedin-in fs-6 text-primary"></span></a></div>{% endcomment %}
+                </div>
+            </div>
+            <div class="col-md-6 text-center text-md-start">
+                <h3 class="mb-3">Hablemos, agenda una llamada:</h3>
+                <!-- Cal element-click embed code begins -->
+                <script type="text/javascript">
+                    (function (C, A, L) {
+                        let p = function (a, ar) {
+                            a.q.push(ar);
+                        };
+                        let d = C.document;
+                        C.Cal = C.Cal || function () {
+                            let cal = C.Cal;
+                            let ar = arguments;
+                            if (!cal.loaded) {
+                                cal.ns = {};
+                                cal.q = cal.q || [];
+                                d.head.appendChild(d.createElement("script")).src = A;
+                                cal.loaded = true;
+                            }
+                            if (ar[0] === L) {
+                                const api = function () {
+                                    p(api, arguments);
+                                };
+                                const namespace = ar[1];
+                                api.q = api.q || [];
+                                if (typeof namespace === "string") {
+                                    cal.ns[namespace] = cal.ns[namespace] || api;
+                                    p(cal.ns[namespace], ar);
+                                    p(cal, ["initNamespace", namespace]);
+                                } else p(cal, ar);
+                                return;
+                            }
+                            p(cal, ar);
+                        };
+                    })(window, "https://app.cal.com/embed/embed.js", "init");
+                    Cal("init", "15min", {origin: "https://app.cal.com"});
+
+
+                    // Important: Please add the following attributes to the element that should trigger the calendar to open upon clicking.
+                    // `data-cal-link="bulldata/15min"`
+                    // data-cal-namespace="15min"
+                    // `data-cal-config='{"layout":"month_view"}'`
+
+                    Cal.ns["15min"]("ui", {
+                        "cssVarsPerTheme": {"light": {"cal-brand": "#3874ff"}},
+                        "hideEventTypeDetails": false,
+                        "layout": "month_view"
+                    });
+                </script>
+                <!-- Cal element-click embed code ends -->
+                <button class="btn btn-primary btn-lg me-1 mb-1" type="button"
+                        data-cal-link="bulldata/15min"
+                        data-cal-namespace="15min"
+                        data-cal-config='{"layout":"month_view"}'>Agenda una llamada
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- end of .container-->
+
+</section>
+<!-- <section> close ============================-->
+<!-- ============================================-->
 
 <div class="position-relative">
     <div class="bg-holder footer-bg"
@@ -77,12 +270,9 @@
              fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1920 0.44L0 367.74V0H1920V0.44Z" fill="currentColor"></path>
         </svg>
-
-
         <!-- ============================================-->
         <!-- <section> begin ============================-->
         <section class="footer-default">
-
             <div class="container-small px-lg-7 px-xxl-3">
                 <div class="row position-relative">
                     <div class="col-12 col-sm-12 col-lg-5 mb-4 order-0 order-sm-0"><a href="#">
@@ -90,39 +280,26 @@
                              src="{% static 'assets/img/icons/logo-white.png' %}"
                              height="48"
                              alt=""/></a>
-                        <h3 class="text-white">phoenix</h3>
-                        <p class="text-white opacity-50">All over the world. Alice in <br/>wonderland and other
-                            places.</p>
+                        <h3 class="text-white">bulldata</h3>
+                        <p class="text-white opacity-50">Monetizamos tu contenido sin muchas vueltas </p>
                     </div>
                     <div class="col-lg-7">
                         <div class="row justify-content-between">
                             <div class="col-6 col-sm-4 col-lg-3 mb-3 order-2 order-sm-1">
                                 <div class="border-dashed border-start border-primary-light ps-3"
                                      style="--phoenix-border-opacity: .2;">
-                                    <h5 class="fw-bolder mb-2 text-light">Help</h5>
+                                    <h5 class="fw-bolder mb-2 text-light">Nosotros</h5>
                                     <ul class="list-unstyled mb-3">
                                         <li class="mb-1"><a class="text-body-quaternary" href="#!"
-                                                            data-bs-theme="light">About</a></li>
+                                                            data-bs-theme="light">Acerca de</a></li>
                                         <li class="mb-1"><a class="text-body-quaternary" href="#!"
-                                                            data-bs-theme="light">Contact</a></li>
-                                        <li class="mb-1"><a class="text-body-quaternary" href="#!"
-                                                            data-bs-theme="light">Developers</a></li>
-                                    </ul>
-                                </div>
-                                <div class="border-dashed border-start border-primary-light ps-3"
-                                     style="--phoenix-border-opacity: .2;">
-                                    <h5 class="lh-lg fw-bolder mb-2 text-light">Follow</h5>
-                                    <ul class="list-unstyled mb-2">
-                                        <li class="mb-1"><a class="text-body-quaternary" href="#!"
-                                                            data-bs-theme="light">Facebook</a></li>
-                                        <li class="mb-1"><a class="text-body-quaternary" href="#!"
-                                                            data-bs-theme="light">Twitter</a></li>
-                                        <li class="mb-1"><a class="text-body-quaternary" href="#!"
-                                                            data-bs-theme="light">Linkedin</a></li>
+                                                            data-bs-theme="light" data-cal-link="bulldata/15min"
+                        data-cal-namespace="15min"
+                        data-cal-config='{"layout":"month_view"}'>Contacto</a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-6 col-sm-4 col-lg-3 mb-3 order-3 order-sm-2">
+                            {% comment %}<div class="col-6 col-sm-4 col-lg-3 mb-3 order-3 order-sm-2">
                                 <div class="border-dashed border-start border-primary-light ps-3"
                                      style="--phoenix-border-opacity: .2;">
                                     <h5 class="lh-lg fw-bold text-light mb-2">Support</h5>
@@ -161,7 +338,7 @@
                                                             data-bs-theme="light">About</a></li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div>{% endcomment %}
                         </div>
                     </div>
                 </div>
