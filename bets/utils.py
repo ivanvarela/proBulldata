@@ -54,13 +54,14 @@ def get_revenue_metrics(context=None):
     # Día de la semana anterior (mismo día de la semana que ayer pero de la semana pasada)
     same_day_last_week = yesterday - timedelta(days=7)
 
-    # Inicio y fin de esta semana
-    start_of_this_week = today - timedelta(days=today.weekday())
-    end_of_this_week = yesterday  # Solo hasta ayer
+    # CAMBIO: Últimos 7 días vs 7 días anteriores (en lugar de semana vs semana)
+    # Últimos 7 días (hasta ayer)
+    end_of_last_7_days = yesterday
+    start_of_last_7_days = yesterday - timedelta(days=6)  # 7 días incluyendo ayer
 
-    # Inicio y fin de la semana pasada
-    start_of_last_week = start_of_this_week - timedelta(days=7)
-    end_of_last_week = start_of_this_week - timedelta(days=1)
+    # 7 días anteriores a los últimos 7 días
+    end_of_previous_7_days = start_of_last_7_days - timedelta(days=1)
+    start_of_previous_7_days = end_of_previous_7_days - timedelta(days=6)  # 7 días
 
     # Inicio de este mes hasta ayer
     start_of_this_month = today.replace(day=1)
@@ -100,24 +101,24 @@ def get_revenue_metrics(context=None):
     # Variación
     var_yesterday = 0 if rev_ylw == 0 else (rev_yesterday / rev_ylw) - 1
 
-    # 2. ESTA SEMANA vs SEMANA PASADA
+    # 2. ÚLTIMOS 7 DÍAS vs 7 DÍAS ANTERIORES
     # ---------------------------------------
-    # Revenue de esta semana (hasta ayer)
-    this_week_data = RefineryRevenueReport.objects.filter(
-        date__gte=start_of_this_week,
-        date__lte=end_of_this_week
+    # Revenue de los últimos 7 días (hasta ayer)
+    last_7_days_data = RefineryRevenueReport.objects.filter(
+        date__gte=start_of_last_7_days,
+        date__lte=end_of_last_7_days
     )
-    rev_this_week = this_week_data.aggregate(total=Sum('revenue_net'))['total'] or 0
+    rev_last_7_days = last_7_days_data.aggregate(total=Sum('revenue_net'))['total'] or 0
 
-    # Revenue de la semana pasada
-    last_week_data = RefineryRevenueReport.objects.filter(
-        date__gte=start_of_last_week,
-        date__lte=end_of_last_week
+    # Revenue de los 7 días anteriores
+    previous_7_days_data = RefineryRevenueReport.objects.filter(
+        date__gte=start_of_previous_7_days,
+        date__lte=end_of_previous_7_days
     )
-    rev_last_week = last_week_data.aggregate(total=Sum('revenue_net'))['total'] or 0
+    rev_previous_7_days = previous_7_days_data.aggregate(total=Sum('revenue_net'))['total'] or 0
 
     # Variación
-    var_week = 0 if rev_last_week == 0 else (rev_this_week / rev_last_week) - 1
+    var_week = 0 if rev_previous_7_days == 0 else (rev_last_7_days / rev_previous_7_days) - 1
 
     # 3. ESTE MES (hasta ayer) vs MISMO PERÍODO MES PASADO
     # ---------------------------------------
@@ -165,9 +166,9 @@ def get_revenue_metrics(context=None):
         'var_yesterday': var_yesterday,
         'var_yesterday_pct': var_yesterday * 100,  # Porcentaje
 
-        # Esta semana vs semana pasada
-        'rev_this_week': rev_this_week,
-        'rev_last_week': rev_last_week,
+        # Últimos 7 días vs 7 días anteriores (CAMBIO APLICADO)
+        'rev_this_week': rev_last_7_days,  # Mantenemos el nombre para compatibilidad
+        'rev_last_week': rev_previous_7_days,  # Mantenemos el nombre para compatibilidad
         'var_week': var_week,
         'var_week_pct': var_week * 100,  # Porcentaje
 
@@ -186,10 +187,11 @@ def get_revenue_metrics(context=None):
         # Fechas de referencia para mostrar en la interfaz
         'yesterday_date': yesterday,
         'same_day_last_week_date': same_day_last_week,
-        'this_week_start': start_of_this_week,
-        'this_week_end': end_of_this_week,
-        'last_week_start': start_of_last_week,
-        'last_week_end': end_of_last_week,
+        # CAMBIO: Actualizamos las fechas de referencia para reflejar los nuevos períodos
+        'this_week_start': start_of_last_7_days,  # Inicio de los últimos 7 días
+        'this_week_end': end_of_last_7_days,  # Fin de los últimos 7 días (ayer)
+        'last_week_start': start_of_previous_7_days,  # Inicio de los 7 días anteriores
+        'last_week_end': end_of_previous_7_days,  # Fin de los 7 días anteriores
         'this_month_start': start_of_this_month,
         'this_month_end': end_of_this_month,
         'last_month_start': start_of_last_month,
